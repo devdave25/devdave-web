@@ -9,7 +9,6 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@datorama/akita": "^7.1.1",
     "@floating-ui/react-dom-interactions": "^0.9.3",
     "@heroicons/react": "^2.0.8",
     "@mindspace-io/react": "^1.8.1",

@@ -1,17 +1,8 @@
-import { akitaConfig, akitaDevtools } from "@datorama/akita";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/index.css";
-
-// if (config.isProduction) {
-// enableAkitaProdMode();
-// } else {
-akitaDevtools({ name: "Akita" });
-// }
-
-akitaConfig({ resettable: true });
 
 function setViewportProperty(doc: HTMLElement) {
   let prevClientHeight: number;
