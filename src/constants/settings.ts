@@ -3,98 +3,72 @@ import { ActionEnum, Settings } from "../interfaces/settings";
 export const SETTINGS: Settings = {
   groups: [
     {
-      name: "Text",
+      name: "String",
       actions: [
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle:
-            "This function is to encode text. This function is to encode text. This function is to encode text. This function is to encode text.",
+          title: "Base64 Encode",
+          subtitle: "Encode / Decode Base64 strings.",
         },
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "URL Encode",
+          subtitle: "Encode / Decode URL strings.",
+        },
+        {
+          type: ActionEnum.Encode,
+          title: "HTML Encode",
+          subtitle: "Encode / Decode HTML strings.",
+        },
+        {
+          type: ActionEnum.Encode,
+          title: "UUID",
+          subtitle: "Generate UUIDs",
         },
       ],
     },
     {
-      name: "Number",
+      name: "JSON",
       actions: [
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Viewer",
+          subtitle: "JSON viewer.",
         },
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Validator",
+          subtitle: "JSON validator.",
+        },
+      ],
+    },
+    {
+      name: "XML",
+      actions: [
+        {
+          type: ActionEnum.Encode,
+          title: "Viewer",
+          subtitle: "XML viewer.",
         },
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Validator",
+          subtitle: "XML validator.",
+        },
+      ],
+    },
+    {
+      name: "Colour",
+      actions: [
+        {
+          type: ActionEnum.Encode,
+          title: "Converter",
+          subtitle: "Colour converter (HEX, RGB, etc).",
         },
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Generator",
+          subtitle: "Generate colour palettes.",
         },
       ],
     },
@@ -103,23 +77,13 @@ export const SETTINGS: Settings = {
       actions: [
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Converter",
+          subtitle: "Convert image file type.",
         },
         {
           type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
-        },
-        {
-          type: ActionEnum.Encode,
-          title: "Encode",
-          subtitle: "This function is to encode text",
+          title: "Resizer",
+          subtitle: "Adjust image size.",
         },
       ],
     },

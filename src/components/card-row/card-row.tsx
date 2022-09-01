@@ -20,13 +20,13 @@ export const CardRow: React.FC<CardRowProps> = ({
   }
 
   return (
-    <div>
-      {group}
+    <div className="pb-4">
+      <h4 className="text-3xl text-on-background pb-2 pl-2">{group}</h4>
       <div
         className={classNames("gap-4", {
-          "grid grid-flow-col auto-cols-max scroll-pl-4 snap-x overflow-x-auto":
+          "grid grid-flow-col auto-cols-max scroll-my-4 snap-x overflow-x-auto snap-mandatory px-4":
             !activeGroup,
-          "flex flex-wrap": activeGroup,
+          "flex flex-wrap px-4": activeGroup,
         })}
       >
         {actions.map(({ type, title, subtitle }, i) => (

@@ -12,7 +12,7 @@ export const PillRow: React.FC<PillRowProps> = ({
   setActive,
 }) => {
   return (
-    <div className="flex flex-row gap-x-4">
+    <div className="flex flex-row gap-x-4 pb-2 scroll-pl-4 px-4 snap-x overflow-x-auto">
       {groups.map((g) => (
         <Pill
           key={g}

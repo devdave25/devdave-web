@@ -9,10 +9,12 @@ const analytics = Analytics({
 
 interface AnalyticsContextInterface {
   trackPage: () => void;
+  trackEvent: (eventName: string, data?: UnknownObject | undefined) => void;
 }
 
 export const AnalyticsContext = React.createContext<AnalyticsContextInterface>({
   trackPage: () => null,
+  trackEvent: () => null,
 });
 
 interface AnalyticsProviderProps {
@@ -33,8 +35,16 @@ export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({
     );
   };
 
+  const trackEvent = (eventName: string, data?: UnknownObject | undefined) => {
+    analytics.track(eventName, data, {
+      plugins: {
+        all: true,
+      },
+    });
+  };
+
   return (
-    <AnalyticsContext.Provider value={{ trackPage }}>
+    <AnalyticsContext.Provider value={{ trackPage, trackEvent }}>
       {children}
     </AnalyticsContext.Provider>
   );

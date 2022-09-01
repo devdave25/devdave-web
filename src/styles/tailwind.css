@@ -1,7 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background-primary: #282c34;
+@layer base {
+  :root {
+    --background: #f0f9f1;
+    --on-background: #242524;
+
+    --surface: #f0f9f1;
+    --on-surface: #242524;
+
+    --surface-variant: #d2d6db;
+    --on-surface-variant: #545a61;
+
+    --primary: #3fa242;
+    --on-primary: #ffffff;
+    --primary-container: #b6e2b7;
+    --on-primary-container: #173b18;
+
+    --secondary: #618fbd;
+    --on-secondary: #ffffff;
+    --secondary-container: #d4e0ed;
+    --on-secondary-container: #1e3348;
+
+    --tertiary: #98718d;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #dcd0d8;
+    --on-tertiary-container: #3b2b36;
+
+    --error: #c71c0e;
+    --on-error: #ffffff;
+    --error-container: #ed9f97;
+    --on-error-container: #6b0e06;
+
+    --outline: #7e848a;
+  }
+
+  .dark {
+    --background: #242524;
+    --on-background: #e4ede5;
+
+    --surface: #242524;
+    --on-surface: #e4ede5;
+
+    --surface-variant: #545a61;
+    --on-surface-variant: #bdc1c6;
+
+    --primary: #98d79a;
+    --on-primary: #225824;
+    --primary-container: #338436;
+    --on-primary-container: #b6e2b7;
+
+    --secondary: #c5d6e7;
+    --on-secondary: #305273;
+    --secondary-container: #42709e;
+    --on-secondary-container: #d4e0ed;
+
+    --tertiary: #d4c4cf;
+    --on-tertiary: #5f4557;
+    --tertiary-container: #825e78;
+    --on-tertiary-container: #dcd0d8;
+
+    --error: #ec8076;
+    --on-error: #8a1309;
+    --error-container: #a9180b;
+    --on-error-container: #ed9f97;
+
+    --outline: #93989e;
+  }
 }

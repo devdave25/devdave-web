@@ -10,9 +10,9 @@ export const Pill: React.FC<PillProps> = ({ text, selected, onClick }) => {
   return (
     <div
       className={classNames(
-        "w-fit p-2 rounded-full border-2 border-cyan-900 cursor-pointer",
+        "w-fit p-2 rounded-xl border-2 text-on-surface-variant border-outline cursor-pointer",
         {
-          "bg-cyan-300": selected,
+          "bg-primary text-on-primary": selected,
         }
       )}
       onClick={onClick}
