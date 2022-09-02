@@ -16,7 +16,6 @@ export const HomePage: React.FC = () => {
   const handleOpen = (type: ActionEnum) => {
     switch (type) {
       case ActionEnum.Encode:
-        console.log("OPEN");
         openModal(ModalType.Encode64, <EncodeModal closeModal={() => closeModal(ModalType.Encode64)}></EncodeModal>)
         break;
     }
