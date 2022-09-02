@@ -1,3 +1,14 @@
 export enum ModalType {
-  Encode64,
+  Base64Encode,
+  UrlEncode,
+  HtmlEncode,
+  Uuid,
+  JsonViewer,
+  JsonValidator,
+  XmlViewer,
+  XmlValidator,
+  ColourConverter,
+  ColourGenerator,
+  ImageConverter,
+  ImageResizer
 }

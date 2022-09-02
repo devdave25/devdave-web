@@ -1,26 +1,26 @@
 import React from "react";
-import { Button } from "../../button/button";
-import { Modal } from "../modal";
+import { Button } from "../../../button/button";
+import { Modal } from "../../modal";
 
-import styles from "./encode-modal.module.scss";
+import styles from "./uuid-modal.module.scss";
 
-interface EncodeModalProps {
+interface UuidModalProps {
   closeModal: () => void;
 }
-export const EncodeModal: React.FC<EncodeModalProps> = ({ closeModal }) => {
+export const UuidModal: React.FC<UuidModalProps> = ({ closeModal }) => {
   return (
     <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
-      <EncodeModalContainer closeModal={closeModal} />
+      <UuidModalContainer closeModal={closeModal} />
     </Modal>
   );
 };
 
-export const EncodeModalContainer: React.FC<EncodeModalProps> = ({
+export const UuidModalContainer: React.FC<UuidModalProps> = ({
   closeModal,
 }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.header}>Base64 Encode</div>
+      <div className={styles.header}>UUID</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
         <Button onClick={closeModal} className="mr-3" children={

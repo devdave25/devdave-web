@@ -1,7 +1,16 @@
 export enum ActionEnum {
-  Encode,
-  Decode,
-  Parse,
+  Base64Encode,
+  UrlEncode,
+  HtmlEncode,
+  Uuid,
+  JsonViewer,
+  JsonValidator,
+  XmlViewer,
+  XmlValidator,
+  ColourConverter,
+  ColourGenerator,
+  ImageConverter,
+  ImageResizer
 }
 
 export interface Action {

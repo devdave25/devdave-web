@@ -6,22 +6,22 @@ export const SETTINGS: Settings = {
       name: "String",
       actions: [
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.Base64Encode,
           title: "Base64 Encode",
           subtitle: "Encode / Decode Base64 strings.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.UrlEncode,
           title: "URL Encode",
           subtitle: "Encode / Decode URL strings.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.HtmlEncode,
           title: "HTML Encode",
           subtitle: "Encode / Decode HTML strings.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.Uuid,
           title: "UUID",
           subtitle: "Generate UUIDs",
         },
@@ -31,12 +31,12 @@ export const SETTINGS: Settings = {
       name: "JSON",
       actions: [
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.JsonViewer,
           title: "Viewer",
           subtitle: "JSON viewer.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.JsonValidator,
           title: "Validator",
           subtitle: "JSON validator.",
         },
@@ -46,12 +46,12 @@ export const SETTINGS: Settings = {
       name: "XML",
       actions: [
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.XmlViewer,
           title: "Viewer",
           subtitle: "XML viewer.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.XmlValidator,
           title: "Validator",
           subtitle: "XML validator.",
         },
@@ -61,12 +61,12 @@ export const SETTINGS: Settings = {
       name: "Colour",
       actions: [
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.ColourConverter,
           title: "Converter",
           subtitle: "Colour converter (HEX, RGB, etc).",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.ColourGenerator,
           title: "Generator",
           subtitle: "Generate colour palettes.",
         },
@@ -76,12 +76,12 @@ export const SETTINGS: Settings = {
       name: "Image",
       actions: [
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.ImageConverter,
           title: "Converter",
           subtitle: "Convert image file type.",
         },
         {
-          type: ActionEnum.Encode,
+          type: ActionEnum.ImageResizer,
           title: "Resizer",
           subtitle: "Adjust image size.",
         },
