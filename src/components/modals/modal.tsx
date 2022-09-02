@@ -5,7 +5,6 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "./modal.module.scss";
 
 export interface ModalProps {
-  show: boolean;
   onDismiss: () => void;
   hideBackground?: boolean;
   className?: string;
@@ -15,7 +14,6 @@ export interface ModalProps {
   children: React.ReactElement;
 }
 export const Modal: React.FC<ModalProps> = ({
-  show,
   onDismiss,
   hideBackground,
   className,
@@ -60,28 +58,26 @@ export const Modal: React.FC<ModalProps> = ({
   }
 
   return ReactDOM.createPortal(
-    show ? (
+    <div
+      className={classNames("flex align-middle", styles["modal"], {
+        [styles["modal--no-bg"]]: hideBackground,
+      })}
+      onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
+    >
+      {!hideBackground && <div className={styles["background"]} />}
       <div
-        className={classNames("flex align-middle ", {
-          [styles["modal--no-bg"]]: hideBackground,
-        })}
-        onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
+        className={classNames(styles["content"], className)}
+        onClick={(e) => e.stopPropagation()}
       >
-        {!hideBackground && <div className={styles["background"]} />}
-        <div
-          className={classNames(styles["content"], className)}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {hasCloseIcon && (
-            <XMarkIcon
-              className={classNames(styles["close"], closeIconClassName)}
-              onClick={onDismiss}
-            />
-          )}
-          {children}
-        </div>
+        {hasCloseIcon && (
+          <XMarkIcon
+            className={classNames(styles["close"], closeIconClassName)}
+            onClick={onDismiss}
+          />
+        )}
+        {children}
       </div>
-    ) : null,
+    </div>,
     el
   );
 };

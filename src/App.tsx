@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./AppRoutes";
+import { Modals } from "./containers/modals/modals";
 import { AnalyticsProvider } from "./context/analytics";
+import { ModalProvider } from "./context/modal";
 import { ThemeProvider } from "./context/theme";
 
 export const App: React.FC = () => {
@@ -9,9 +11,12 @@ export const App: React.FC = () => {
     <React.StrictMode>
       <ThemeProvider>
         <AnalyticsProvider>
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
+          <ModalProvider>
+            <BrowserRouter>
+              <AppRoutes />
+              <Modals />
+            </BrowserRouter>
+          </ModalProvider>
         </AnalyticsProvider>
       </ThemeProvider>
     </React.StrictMode>

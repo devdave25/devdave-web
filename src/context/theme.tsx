@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocalStorage } from "../hooks/use-local-storage";
 
 interface ThemeContextInterface {
   theme: string;
@@ -16,7 +17,7 @@ interface ThemeProviderProps {
   children: React.ReactElement;
 }
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   const toggleTheme = () => {
     if (theme === "light") {
