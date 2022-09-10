@@ -7,7 +7,9 @@ import styles from "./base64-encode-modal.module.scss";
 interface Base64EncodeModalProps {
   closeModal: () => void;
 }
-export const Base64EncodeModal: React.FC<Base64EncodeModalProps> = ({ closeModal }) => {
+export const Base64EncodeModal: React.FC<Base64EncodeModalProps> = ({
+  closeModal,
+}) => {
   return (
     <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
       <Base64EncodeModalContainer closeModal={closeModal} />
@@ -23,11 +25,7 @@ export const Base64EncodeModalContainer: React.FC<Base64EncodeModalProps> = ({
       <div className={styles.header}>Base64 Encode</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" children={
-          <>
-            Cancel
-          </>
-        } />
+        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </div>
   );

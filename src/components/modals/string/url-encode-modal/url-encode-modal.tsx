@@ -7,7 +7,9 @@ import styles from "./url-encode-modal.module.scss";
 interface UrlEncodeModalProps {
   closeModal: () => void;
 }
-export const UrlEncodeModal: React.FC<UrlEncodeModalProps> = ({ closeModal }) => {
+export const UrlEncodeModal: React.FC<UrlEncodeModalProps> = ({
+  closeModal,
+}) => {
   return (
     <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
       <UrlEncodeModalContainer closeModal={closeModal} />
@@ -23,11 +25,7 @@ export const UrlEncodeModalContainer: React.FC<UrlEncodeModalProps> = ({
       <div className={styles.header}>Url Encode</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" children={
-          <>
-            Cancel
-          </>
-        } />
+        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </div>
   );

@@ -7,7 +7,9 @@ import styles from "./html-encode-modal.module.scss";
 interface HtmlEncodeModalProps {
   closeModal: () => void;
 }
-export const HtmlEncodeModal: React.FC<HtmlEncodeModalProps> = ({ closeModal }) => {
+export const HtmlEncodeModal: React.FC<HtmlEncodeModalProps> = ({
+  closeModal,
+}) => {
   return (
     <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
       <HtmlEncodeModalContainer closeModal={closeModal} />
@@ -23,11 +25,7 @@ export const HtmlEncodeModalContainer: React.FC<HtmlEncodeModalProps> = ({
       <div className={styles.header}>Html Encode</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" children={
-          <>
-            Cancel
-          </>
-        } />
+        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </div>
   );

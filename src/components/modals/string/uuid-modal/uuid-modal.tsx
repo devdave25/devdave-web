@@ -23,11 +23,7 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
       <div className={styles.header}>UUID</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" children={
-          <>
-            Cancel
-          </>
-        } />
+        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </div>
   );

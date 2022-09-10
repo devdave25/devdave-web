@@ -2,14 +2,35 @@ import classNames from "classnames";
 import React from "react";
 
 interface ButtonProps {
-    children: React.ReactNode;
-    className?: string;
-    onClick: () => void;
+  text: string;
+  primary?: boolean;
+  secondary?: boolean;
+  tertiary?: boolean;
+  className?: string;
+  onClick?: () => void;
 }
-export const Button: React.FC<ButtonProps> = ({ children, className, onClick }) => {
-    return (
-        <button className={classNames("flex bg-primary text-on-primary-container rounded p-2 overflow-y-auto", className)} onClick={onClick}>
-            {children}
-        </button>
-    );
+export const Button: React.FC<ButtonProps> = ({
+  text,
+  primary,
+  secondary,
+  tertiary,
+  className,
+  onClick,
+}) => {
+  return (
+    <button
+      className={classNames(
+        "flex rounded p-2 overflow-y-auto",
+        {
+          ["bg-primary text-on-primary"]: primary,
+          ["bg-secondary text-on-secondary"]: secondary,
+          ["bg-tertiary text-on-tertiary"]: tertiary,
+        },
+        className
+      )}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
 };

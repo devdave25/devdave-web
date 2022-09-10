@@ -5,30 +5,28 @@ import { Modal } from "../../modal";
 import styles from "./xml-viewer-modal.module.scss";
 
 interface XmlViewerModalProps {
-    closeModal: () => void;
+  closeModal: () => void;
 }
-export const XmlViewerModal: React.FC<XmlViewerModalProps> = ({ closeModal }) => {
-    return (
-        <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
-            <XmlViewerModalContainer closeModal={closeModal} />
-        </Modal>
-    );
+export const XmlViewerModal: React.FC<XmlViewerModalProps> = ({
+  closeModal,
+}) => {
+  return (
+    <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
+      <XmlViewerModalContainer closeModal={closeModal} />
+    </Modal>
+  );
 };
 
 export const XmlViewerModalContainer: React.FC<XmlViewerModalProps> = ({
-    closeModal,
+  closeModal,
 }) => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.header}>Xml viewer</div>
-            <p>Function here</p>
-            <div className="flex justify-end mt-3">
-                <Button onClick={closeModal} className="mr-3" children={
-                    <>
-                        Cancel
-                    </>
-                } />
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>Xml viewer</div>
+      <p>Function here</p>
+      <div className="flex justify-end mt-3">
+        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
+      </div>
+    </div>
+  );
 };
