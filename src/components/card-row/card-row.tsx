@@ -35,6 +35,7 @@ export const CardRow: React.FC<CardRowProps> = ({
             title={title}
             subtitle={subtitle}
             onClick={() => open(type)}
+            clickable
           />
         ))}
       </div>

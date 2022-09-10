@@ -26,6 +26,14 @@ module.exports = {
       "surface-variant": "var(--surface-variant)",
       "on-surface-variant": "var(--on-surface-variant)",
       outline: "var(--outline)",
+      disabled: "var(--disabled)",
+    },
+    boxShadow: {
+      1: "var(--elevation-1)",
+      2: "var(--elevation-2)",
+      3: "var(--elevation-3)",
+      4: "var(--elevation-4)",
+      5: "var(--elevation-5)",
     },
     extend: {
       fontFamily: {
