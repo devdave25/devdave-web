@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "./modal.module.scss";
+import { useTheme } from "../../context/theme";
 
 export interface ModalProps {
   onDismiss: () => void;
@@ -22,6 +23,7 @@ export const Modal: React.FC<ModalProps> = ({
   disableBackgroundDismiss,
   children,
 }) => {
+  const { theme } = useTheme();
   const portalElement = document.querySelector("#portal");
   const el = document.createElement("div");
 
@@ -66,7 +68,7 @@ export const Modal: React.FC<ModalProps> = ({
     >
       {!hideBackground && <div className={styles["background"]} />}
       <div
-        className={classNames(styles["content"], className)}
+        className={classNames("bg-background text-on-background", { dark: theme === "dark" }, styles["content"], className)}
         onClick={(e) => e.stopPropagation()}
       >
         {hasCloseIcon && (
