@@ -1,6 +1,6 @@
 {
   "name": "devdave-web",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "start": "vite",
@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.11.6",
     "@floating-ui/react-dom-interactions": "^0.9.3",
     "@heroicons/react": "^2.0.8",
     "@testing-library/jest-dom": "^5.14.1",
@@ -17,6 +18,7 @@
     "@testing-library/user-event": "^13.2.1",
     "analytics": "^0.8.1",
     "classnames": "^2.3.1",
+    "file-saver": "^2.0.5",
     "react": "^18.2.0",
     "react-ace": "^10.1.0",
     "react-dom": "^18.2.0",
@@ -37,6 +39,7 @@
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@tailwindcss/typography": "^0.5.4",
+    "@types/file-saver": "^2.0.5",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.7.16",
     "@types/react": "^18.0.19",
