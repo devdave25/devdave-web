@@ -28,7 +28,7 @@ export const JsonViewerModalContainer: React.FC<JsonViewerModalProps> = ({
       <AceEditor
         mode="json"
         theme="github"
-        onChange={(e) => console.log(e)}
+        onChange={(e: any) => console.log(e)}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
       />

@@ -1,4 +1,12 @@
-@import "./tailwind.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+
+// Tailwind styles after tailwind base & components and before utilities
+@import "tailwind";
+
+@tailwind utilities;
 
 body {
   margin: 0;

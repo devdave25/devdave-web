@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // @ts-ignore
 import { unregister } from "./serviceWorker";
-import "./styles/index.css";
+import "./styles/index.scss";
 
 function setViewportProperty(doc: HTMLElement) {
   let prevClientHeight: number;

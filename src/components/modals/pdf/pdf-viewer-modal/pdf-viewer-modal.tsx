@@ -2,27 +2,27 @@ import React from "react";
 import { Button } from "../../../button/button";
 import { Modal } from "../../modal";
 
-import styles from "./base64-encode-modal.module.scss";
+import styles from "./pdf-viewer-modal.module.scss";
 
-interface Base64EncodeModalProps {
+interface PdfViewerModalProps {
   closeModal: () => void;
 }
-export const Base64EncodeModal: React.FC<Base64EncodeModalProps> = ({
+export const PdfViewerModal: React.FC<PdfViewerModalProps> = ({
   closeModal,
 }) => {
   return (
     <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
-      <Base64EncodeModalContainer closeModal={closeModal} />
+      <PdfViewerModalContainer closeModal={closeModal} />
     </Modal>
   );
 };
 
-export const Base64EncodeModalContainer: React.FC<Base64EncodeModalProps> = ({
+export const PdfViewerModalContainer: React.FC<PdfViewerModalProps> = ({
   closeModal,
 }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.header}>Base64 Encode</div>
+      <div className={styles.header}>PDF Viewer</div>
       <p>Function here</p>
       <div className="flex justify-end mt-3">
         <Button onClick={closeModal} className="mr-3" text={"Cancel"} />

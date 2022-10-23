@@ -1,16 +1,22 @@
 export enum ActionEnum {
-  Base64Encode,
-  UrlEncode,
-  HtmlEncode,
+  EncodeDecode,
   Uuid,
+  Jwt,
+  Timestamp,
+  DateMaths,
+  Timezones,
   JsonViewer,
   JsonValidator,
   XmlViewer,
   XmlValidator,
   ColourConverter,
   ColourGenerator,
-  ImageConverter,
-  ImageResizer
+  ColourWheel,
+  FileInfo,
+  Image,
+  Video,
+  PdfViewer,
+  PdfCombiner,
 }
 
 export interface Action {

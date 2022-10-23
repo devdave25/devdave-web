@@ -2,8 +2,8 @@ import classNames from "classnames";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import styles from "./modal.module.scss";
 import { useTheme } from "../../context/theme";
+import styles from "./modal.module.scss";
 
 export interface ModalProps {
   onDismiss: () => void;
@@ -68,7 +68,12 @@ export const Modal: React.FC<ModalProps> = ({
     >
       {!hideBackground && <div className={styles["background"]} />}
       <div
-        className={classNames("bg-background text-on-background", { dark: theme === "dark" }, styles["content"], className)}
+        className={classNames(
+          "bg-background text-on-background",
+          { dark: theme === "dark" },
+          styles["content"],
+          className
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         {hasCloseIcon && (
