@@ -1,0 +1,33 @@
+.toggle {
+  @apply h-[16px] w-[26px] rounded-full bg-surface-variant;
+
+  &:after {
+    @apply absolute m-[1px] h-[14px] w-[14px] rounded-full bg-white transition-all content-[''];
+  }
+
+  &.large {
+    @apply h-6 w-10;
+
+    &:after {
+      @apply m-[2px] h-5 w-5;
+    }
+  }
+
+  &.checked {
+    @apply bg-primary;
+
+    &:after {
+      @apply translate-x-[10px] bg-white;
+    }
+
+    &.large {
+      &:after {
+        @apply translate-x-4;
+      }
+    }
+  }
+
+  &.disabled {
+    @apply bg-disabled;
+  }
+}

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-interface CheckboxProps
+interface RadioProps
   extends React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -10,7 +10,7 @@ interface CheckboxProps
   hasError?: boolean;
 }
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ children, ...props }, ref) => {
     const { className, text, hasError, disabled } = props;
 
@@ -18,7 +18,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       <label
         htmlFor={props.id}
         className={classNames(
-          "m-0 flex flex-row gap-2 text-md items-center text-on-surface",
+          "m-0 flex flex-row gap-2 items-center text-md text-on-surface",
           {
             "text-error": hasError,
             "text-disabled": disabled,
@@ -27,9 +27,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         )}
       >
         <input
-          type="checkbox"
-          className={classNames("h-3 w-3 rounded-sm checked:accent-primary", {
-            "bg-disabled": disabled,
+          type="radio"
+          className={classNames("accent-primary h-4 w-4", {
+            "bg-disable": disabled,
           })}
           ref={ref}
           {...props}

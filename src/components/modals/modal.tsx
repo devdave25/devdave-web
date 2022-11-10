@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../../context/theme";
-import styles from "./modal.module.scss";
 
 export interface ModalProps {
   onDismiss: () => void;
+  title?: string;
   hideBackground?: boolean;
   className?: string;
   hasCloseIcon?: boolean;
@@ -17,6 +17,7 @@ export interface ModalProps {
 export const Modal: React.FC<ModalProps> = ({
   onDismiss,
   hideBackground,
+  title,
   className,
   hasCloseIcon,
   closeIconClassName,
@@ -61,27 +62,41 @@ export const Modal: React.FC<ModalProps> = ({
 
   return ReactDOM.createPortal(
     <div
-      className={classNames("flex align-middle", styles["modal"], {
-        [styles["modal--no-bg"]]: hideBackground,
-      })}
+      className={classNames(
+        "flex align-middle justify-center items-center overflow-hidden fixed top-0 left-0 right-0 bottom-0",
+        {
+          static: hideBackground,
+        }
+      )}
       onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
     >
-      {!hideBackground && <div className={styles["background"]} />}
+      {!hideBackground && (
+        <div className="backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0" />
+      )}
       <div
         className={classNames(
-          "bg-background text-on-background",
+          "bg-background text-on-background w-100 min-w-[480px] max-w-screen max-h-screen px-6 pb-4 border-2 border-outline rounded z-50 overflow-auto",
           { dark: theme === "dark" },
-          styles["content"],
           className
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        {hasCloseIcon && (
-          <XMarkIcon
-            className={classNames(styles["close"], closeIconClassName)}
-            onClick={onDismiss}
-          />
-        )}
+        <div className="pt-4 pb-2">
+          <div className="flex flex-row items-center">
+            <div className="flex-grow">{title && <h4>{title}</h4>}</div>
+            {hasCloseIcon && (
+              <XMarkIcon
+                className={classNames(
+                  "cursor-pointer h-[22px] w-[22px] hover:opacity-80",
+                  closeIconClassName
+                )}
+                onClick={onDismiss}
+              />
+            )}
+          </div>
+          {title && <div className="border-b-2 border-outline rounded" />}
+        </div>
+
         {children}
       </div>
     </div>,

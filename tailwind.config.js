@@ -21,6 +21,10 @@ module.exports = {
       32: "128px",
       40: "160px",
       48: "192px",
+      60: "240px",
+      64: "256px",
+      80: "320px",
+      96: "384px",
     },
     fontSize: {
       "display-lg": [
@@ -110,6 +114,8 @@ module.exports = {
       "on-surface-variant": "var(--on-surface-variant)",
       outline: "var(--outline)",
       disabled: "var(--disabled)",
+      white: "white",
+      black: "black",
     },
     boxShadow: {
       1: "var(--elevation-1)",

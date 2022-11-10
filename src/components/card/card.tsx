@@ -16,9 +16,10 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={classNames(
-        "flex flex-col h-32 w-80 p-4 bg-primary-container rounded border-2 border-outline snap-start text-ellipsis overflow-clip mb-1",
-        "cursor-pointer",
-        clickable
+        "flex flex-col w-60 h-32 p-4 bg-primary-container rounded border-2 border-outline snap-start text-ellipsis overflow-clip hover:opacity-80",
+        {
+          "cursor-pointer": clickable,
+        }
       )}
       onClick={onClick}
     >

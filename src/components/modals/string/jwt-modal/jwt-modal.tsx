@@ -2,14 +2,12 @@ import React from "react";
 import { Button } from "../../../button/button";
 import { Modal } from "../../modal";
 
-import styles from "./jwt-modal.module.scss";
-
 interface JwtModalProps {
   closeModal: () => void;
 }
 export const JwtModal: React.FC<JwtModalProps> = ({ closeModal }) => {
   return (
-    <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
+    <Modal onDismiss={closeModal} title="JWT" hasCloseIcon>
       <JwtModalContainer closeModal={closeModal} />
     </Modal>
   );
@@ -17,12 +15,11 @@ export const JwtModal: React.FC<JwtModalProps> = ({ closeModal }) => {
 
 export const JwtModalContainer: React.FC<JwtModalProps> = ({ closeModal }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>Jwt</div>
-      <p>Function here</p>
+    <>
+      <div className="h-64">Body</div>
       <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
+        <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
-    </div>
+    </>
   );
 };

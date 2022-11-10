@@ -1,18 +1,15 @@
-import { ArrowPathIcon, DocumentDuplicateIcon } from "@heroicons/react/24/solid";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { Button } from "../../../button/button";
 import { Modal } from "../../modal";
 import { v4 } from "uuid";
-
-import styles from "./uuid-modal.module.scss";
-import classnames from "classnames";
 
 interface UuidModalProps {
   closeModal: () => void;
 }
 export const UuidModal: React.FC<UuidModalProps> = ({ closeModal }) => {
   return (
-    <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
+    <Modal onDismiss={closeModal} title="UUIDs" hasCloseIcon>
       <UuidModalContainer closeModal={closeModal} />
     </Modal>
   );
@@ -37,21 +34,22 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
     }
 
     setUuids(array);
-  }
+  };
 
   React.useState(() => {
     if (!uuids.length) {
-      generateUuids()
+      generateUuids();
     }
   });
 
   const renderUuid = (index: number, uuid: string) => (
-    <div key={index} className="flex">
-      <div className="text-xl">
-        {uuid}
-      </div>
-      <div className="flex ml-2">
-        <DocumentDuplicateIcon className="w-8 cursor-pointer" onClick={() => copyToClipboard(uuid)} />
+    <div key={index} className="flex gap-2 items-center">
+      <p>{uuid}</p>
+      <div className="flex flex-grow justify-end">
+        <DocumentDuplicateIcon
+          className="w-4 cursor-pointer"
+          onClick={() => copyToClipboard(uuid)}
+        />
       </div>
     </div>
   );
@@ -60,20 +58,15 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
     <div className="grid grid-flow-row gap-1">
       {uuids.map((u, i) => renderUuid(i, u))}
     </div>
-  )
+  );
 
   return (
-    <div className={styles.container}>
-      <div className="flex mr-16 mb-4">
-        <div className={classnames("grow text-2xl", styles.header)}>UUID</div>
-        <ArrowPathIcon className="w-8 cursor-pointer" onClick={() => generateUuids(true)} />
-      </div>
-
+    <div className="flex flex-col justify-between">
       {renderUuids(uuids)}
 
-
-      <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
+      <div className="flex justify-end mt-3 gap-3">
+        <Button primary onClick={generateUuids} text={"Reload"} />
+        <Button outline onClick={closeModal} text={"Cancel"} />
       </div>
     </div>
   );

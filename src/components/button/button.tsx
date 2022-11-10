@@ -28,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={classNames(
-        "flex rounded p-2 overflow-y-auto hover:opacity-80 active:opacity-80",
+        "flex rounded py-1 px-2 overflow-y-auto justify-center items-center hover:opacity-80 active:opacity-80",
         outline
           ? {
               ["border-2 border-outline"]: outline,
@@ -61,7 +61,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {text}
+      <p className="flex text-sm">{text}</p>
     </button>
   );
 };

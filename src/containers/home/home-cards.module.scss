@@ -1,0 +1,17 @@
+.card {
+  .title {
+    @apply text-on-background pb-2 pl-2;
+  }
+
+  .body {
+    @apply gap-4;
+
+    &.active {
+      @apply flex flex-wrap px-4;
+    }
+
+    &.inactive {
+      @apply grid grid-flow-col auto-cols-max scroll-px-4 snap-x overflow-x-auto snap-mandatory px-4;
+    }
+  }
+}

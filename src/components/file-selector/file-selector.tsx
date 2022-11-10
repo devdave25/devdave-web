@@ -8,7 +8,7 @@ export const FileSelector: React.FC<FileSelectorProps> = ({
   multiple,
   onSelect,
 }) => {
-  const [files, setFiles] = React.useState<FileList | undefined>()
+  const [files, setFiles] = React.useState<FileList | undefined>();
 
   const onChange = (fileList: FileList | null) => {
     if (!fileList) {
@@ -19,7 +19,7 @@ export const FileSelector: React.FC<FileSelectorProps> = ({
 
     setFiles(fileList);
     onSelect(Array.from(fileList));
-  }
+  };
 
   return (
     <input

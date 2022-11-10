@@ -6,14 +6,12 @@ import { useFileInfo } from "../../../../hooks/use-file-info";
 import { useFfmpeg } from "../../../../hooks/use-ffmpeg";
 import { saveFile } from "../../../../utils/files";
 
-import styles from "./file-info-modal.module.scss";
-
 interface FileInfoModalProps {
   closeModal: () => void;
 }
 export const FileInfoModal: React.FC<FileInfoModalProps> = ({ closeModal }) => {
   return (
-    <Modal onDismiss={closeModal} className={styles["modal"]} hasCloseIcon>
+    <Modal onDismiss={closeModal} title="File Info" hasCloseIcon>
       <FileInfoModalContainer closeModal={closeModal} />
     </Modal>
   );

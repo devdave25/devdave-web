@@ -98,6 +98,7 @@
     --elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15),
       0px 4px 4px rgba(0, 0, 0, 0.3);
   }
+
   // Typography
   h1 {
     @apply text-h1;
@@ -149,6 +150,10 @@
 
   input {
     padding: 1px 2px;
+  }
+
+  .modal {
+    transition: opacity 0.25s ease;
   }
 }
 

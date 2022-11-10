@@ -25,10 +25,11 @@ module.exports = {
       },
     },
   ],
-  framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-vite",
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
   },
+  core: {},
   features: {
     storyStoreV7: true,
   },
