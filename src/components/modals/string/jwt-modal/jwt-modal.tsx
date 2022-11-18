@@ -1,9 +1,9 @@
 import React from "react";
 import { TextArea } from "../../../textarea/textarea";
 import { Modal } from "../../modal";
-import jwt_decode from "jwt-decode";
 import { CopyIcon } from "../../../icons/copy-icon";
 import { PasteIcon } from "../../../icons/paste-icon";
+import { decodeBase64 } from "../../../../utils/string";
 
 interface JwtModalProps {
   closeModal: () => void;
@@ -37,10 +37,17 @@ export const JwtModalContainer: React.FC = () => {
 
   React.useEffect(() => {
     try {
+      const [encodeHeader, encodePayload, signature] = token.split(".");
+      console.log(encodeHeader);
+      console.log(encodePayload);
+      console.log(signature);
+
       setHeader(
-        JSON.stringify(jwt_decode(token, { header: true }), null, "\t")
+        JSON.stringify(JSON.parse(decodeBase64(encodeHeader)), null, "\t")
       );
-      setPayload(JSON.stringify(jwt_decode(token), null, "\t"));
+      setPayload(
+        JSON.stringify(JSON.parse(decodeBase64(encodePayload)), null, "\t")
+      );
       setError("");
     } catch (error) {
       setHeader("");

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { TextArea } from "../../../textarea/textarea";
 import { Toggle } from "../../../toggle/toggle";
 import { Modal } from "../../modal";
-import { Buffer } from "buffer";
 import { CopyIcon } from "../../../icons/copy-icon";
 import { PasteIcon } from "../../../icons/paste-icon";
+import { decodeBase64, encodeBase64 } from "../../../../utils/string";
 
 interface EncodeDecodeModalProps {
   closeModal: () => void;
@@ -29,10 +29,10 @@ export const EncodeDecodeModalContainer: React.FC = () => {
   React.useEffect(() => {
     if (decodeMode) {
       setUriComponent(decodeURIComponent(text));
-      setBase64(Buffer.from(text, "base64").toString("ascii"));
+      setBase64(decodeBase64(text));
     } else {
       // Encode
-      setBase64(Buffer.from(text).toString("base64"));
+      setBase64(encodeBase64(text));
       setUriComponent(encodeURIComponent(text));
     }
   }, [decodeMode, text]);
