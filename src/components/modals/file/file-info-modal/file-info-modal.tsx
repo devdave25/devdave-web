@@ -18,7 +18,7 @@ export const FileInfoModal: React.FC<FileInfoModalProps> = ({ closeModal }) => {
 };
 
 export const FileInfoModalContainer: React.FC<FileInfoModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   const [file, setFile] = React.useState<File | undefined>();
   const { analyse } = useFileInfo();
@@ -39,16 +39,16 @@ export const FileInfoModalContainer: React.FC<FileInfoModalProps> = ({
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>File Info</div>
-      <p>
-        {JSON.stringify(loading)} - {JSON.stringify(progress)}
-      </p>
-      <FileSelector onSelect={(f) => setFile(f[0])} />
-      <Button text="Process" primary onClick={() => doTranscode()} />
-      <div className="flex justify-end mt-3">
-        <Button onClick={closeModal} className="mr-3" text={"Cancel"} />
+    <>
+      {loading ? (
+        JSON.stringify(progress)
+      ) : (
+        <FileSelector onSelect={(f) => setFile(f[0])} />
+      )}
+      <div className="flex justify-end mt-3 gap-2">
+        <Button primary text="Process" onClick={() => doTranscode()} />
+        <Button outline text="Cancel" onClick={closeModal} className="mr-3" />
       </div>
-    </div>
+    </>
   );
 };

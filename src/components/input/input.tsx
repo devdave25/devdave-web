@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import { v4 } from "uuid";
 
 type IntrinsicInputProps = JSX.IntrinsicElements["input"];
 interface InputProps extends IntrinsicInputProps {
@@ -24,13 +25,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const id = props?.id || v4();
+
     return (
       <label
-        htmlFor={props.id}
+        htmlFor={id}
         className={classNames(
           "flex flex-col gap-1 text-md mb-0 text-on-surface",
           {
-            "text-disabled": props.disabled,
+            "text-disabled": props.disabled
           },
           className
         )}
@@ -52,12 +55,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   hasError,
                 "placeholder:text-disabled": props.disabled,
                 "pl-9": leftIcon,
-                "pr-9": rightIcon,
+                "pr-9": rightIcon
               },
               className
             )}
             ref={ref}
-            id={props.id}
+            id={id}
             {...props}
           />
           {rightIcon && <div className="absolute w-4 right-3">{rightIcon}</div>}
@@ -66,7 +69,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <p
             className={classNames("mb-0 mt-1 text-sm", {
               "text-surface-variant": !hasError && !props.disabled,
-              "text-error": hasError,
+              "text-error": hasError
             })}
           >
             {helper}

@@ -1,8 +1,8 @@
-import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { Button } from "../../../button/button";
 import { Modal } from "../../modal";
 import { v4 } from "uuid";
+import { CopyIcon } from "../../../icons/copy-icon";
 
 interface UuidModalProps {
   closeModal: () => void;
@@ -16,7 +16,7 @@ export const UuidModal: React.FC<UuidModalProps> = ({ closeModal }) => {
 };
 
 export const UuidModalContainer: React.FC<UuidModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   const [uuids, setUuids] = React.useState<string[]>([]);
 
@@ -46,10 +46,7 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
     <div key={index} className="flex gap-2 items-center">
       <p>{uuid}</p>
       <div className="flex flex-grow justify-end">
-        <DocumentDuplicateIcon
-          className="w-4 cursor-pointer"
-          onClick={() => copyToClipboard(uuid)}
-        />
+        <CopyIcon value={uuid} />
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   hideBackground,
   disabled,
   className,
-  onClick,
+  onClick
 }) => {
   return (
     <button
@@ -35,26 +35,26 @@ export const Button: React.FC<ButtonProps> = ({
               ["text-primary"]: primary,
               ["text-secondary"]: secondary,
               ["text-tertiary"]: tertiary,
-              ["border-disabled text-disabled"]: disabled,
+              ["border-disabled text-disabled"]: disabled
             }
           : hideBackground
           ? {
               ["text-primary"]: primary,
               ["text-secondary"]: secondary,
               ["text-tertiary"]: tertiary,
-              ["text-disabled"]: disabled,
+              ["text-disabled"]: disabled
             }
           : {
               ["bg-primary text-on-primary"]: primary,
               ["bg-secondary text-on-secondary"]: secondary,
               ["bg-tertiary text-on-tertiary"]: tertiary,
-              ["bg-disabled text-disabled"]: disabled,
+              ["bg-disabled text-disabled"]: disabled
             },
         {
-          ["shadow-2 hover:shadow-3 active:shadow-3"]: raised,
+          ["shadow-2 hover:shadow-3 active:shadow-3"]: raised
         },
         {
-          ["text-on-surface"]: !primary && !secondary && !tertiary && !disabled,
+          ["text-on-surface"]: !primary && !secondary && !tertiary && !disabled
         },
         className
       )}

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import { v4 } from "uuid";
 
 import styles from "./toggle.module.scss";
 
@@ -14,27 +15,20 @@ interface ToggleProps
 }
 
 export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
-  ({ children, ...props }, ref) => {
-    const {
-      checked,
-      defaultChecked,
-      className,
-      leftText,
-      rightText,
-      hasError,
-      disabled,
-    } = props;
+  ({ rightText, leftText, hasError, children, ...props }, ref) => {
+    const { checked, defaultChecked, className, disabled } = props;
+    const id = props?.id || v4();
 
     const [toggled, setToggled] = React.useState(defaultChecked || checked);
 
     return (
       <label
-        htmlFor={props.id}
+        htmlFor={id}
         className={classNames(
           "m-0 flex flex-row gap-2 items-center text-md text-on-surface",
           {
             "text-error": hasError,
-            "text-disabled": disabled,
+            "text-disabled": disabled
           },
           className
         )}
@@ -43,8 +37,10 @@ export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
         <div className={"relative mt-1 flex cursor-pointer"}>
           <div
             className={classNames(styles.toggle, {
+              ["bg-surface-variant"]: !(leftText && rightText),
+              ["bg-primary"]: leftText && rightText,
               [styles.checked]: toggled,
-              [styles.disabled]: disabled,
+              [styles.disabled]: disabled
             })}
           ></div>
           <input
@@ -52,6 +48,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
             className={"sr-only"}
             {...props}
             ref={ref}
+            id={id}
             onChange={(e) => {
               setToggled(e.target.checked);
               props.onChange?.(e);

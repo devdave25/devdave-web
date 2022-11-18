@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import { v4 } from "uuid";
 
 interface CheckboxProps
   extends React.DetailedHTMLProps<
@@ -13,15 +14,15 @@ interface CheckboxProps
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ({ children, ...props }, ref) => {
     const { className, text, hasError, disabled } = props;
+    const id = props?.id || v4();
 
     return (
-      <label
-        htmlFor={props.id}
+      <div
         className={classNames(
           "m-0 flex flex-row gap-2 text-md items-center text-on-surface",
           {
             "text-error": hasError,
-            "text-disabled": disabled,
+            "text-disabled": disabled
           },
           className
         )}
@@ -29,16 +30,16 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           type="checkbox"
           className={classNames("h-3 w-3 rounded-sm checked:accent-primary", {
-            "bg-disabled": disabled,
+            "bg-disabled": disabled
           })}
           ref={ref}
           {...props}
         />
-        <div>
+        <label htmlFor={id}>
           {children}
           {text && <p>{text}</p>}
-        </div>
-      </label>
+        </label>
+      </div>
     );
   }
 );

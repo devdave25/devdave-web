@@ -1,5 +1,5 @@
 .toggle {
-  @apply h-[16px] w-[26px] rounded-full bg-surface-variant;
+  @apply h-[16px] w-[26px] rounded-full;
 
   &:after {
     @apply absolute m-[1px] h-[14px] w-[14px] rounded-full bg-white transition-all content-[''];

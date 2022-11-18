@@ -1,29 +1,73 @@
-import React from "react";
-import { Button } from "../../../button/button";
+import React, { useState } from "react";
+import { TextArea } from "../../../textarea/textarea";
+import { Toggle } from "../../../toggle/toggle";
 import { Modal } from "../../modal";
+import { Buffer } from "buffer";
+import { CopyIcon } from "../../../icons/copy-icon";
+import { PasteIcon } from "../../../icons/paste-icon";
 
 interface EncodeDecodeModalProps {
   closeModal: () => void;
 }
 export const EncodeDecodeModal: React.FC<EncodeDecodeModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <Modal onDismiss={closeModal} title="Encode / Decode" hasCloseIcon>
-      <EncodeDecodeModalContainer closeModal={closeModal} />
+      <EncodeDecodeModalContainer />
     </Modal>
   );
 };
 
-export const EncodeDecodeModalContainer: React.FC<EncodeDecodeModalProps> = ({
-  closeModal,
-}) => {
+export const EncodeDecodeModalContainer: React.FC = () => {
+  const [decodeMode, setDecodeMode] = useState(false);
+  const [text, setText] = useState("");
+
+  const [base64, setBase64] = useState("");
+  const [uriComponet, setUriComponent] = useState("");
+
+  React.useEffect(() => {
+    if (decodeMode) {
+      setUriComponent(decodeURIComponent(text));
+      setBase64(Buffer.from(text, "base64").toString("ascii"));
+    } else {
+      // Encode
+      setBase64(Buffer.from(text).toString("base64"));
+      setUriComponent(encodeURIComponent(text));
+    }
+  }, [decodeMode, text]);
+
   return (
-    <>
-      <div className="h-64">Body</div>
-      <div className="flex justify-end mt-3">
-        <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
-      </div>
-    </>
+    <div className="flex flex-col gap-2">
+      <>
+        <Toggle
+          leftText="Encode"
+          rightText="Decode"
+          checked={decodeMode}
+          onChange={({ target }) => setDecodeMode(target.checked)}
+        />
+        <TextArea
+          title={decodeMode ? "Encoded" : "Plaintext"}
+          value={text}
+          onChange={({ target }) => setText(target.value)}
+          iconActions={[<PasteIcon onClick={(v) => setText(v)} />]}
+          textareaClassName="h-32"
+        />
+        <TextArea
+          value={base64}
+          title={"Base64"}
+          textareaClassName="h-32"
+          readOnly
+          iconActions={[<CopyIcon value={base64} />]}
+        />
+        <TextArea
+          value={uriComponet}
+          title={"URI Component"}
+          textareaClassName="h-32"
+          readOnly
+          iconActions={[<CopyIcon value={base64} />]}
+        />
+      </>
+    </div>
   );
 };
