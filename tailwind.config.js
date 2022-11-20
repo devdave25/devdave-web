@@ -130,6 +130,7 @@ module.exports = {
       disabled: "var(--disabled)",
       white: "white",
       black: "black",
+      transparent: "transparent"
     },
     boxShadow: {
       1: "var(--elevation-1)",

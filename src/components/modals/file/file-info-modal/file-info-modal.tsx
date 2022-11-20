@@ -5,6 +5,7 @@ import { Modal } from "../../modal";
 import { useFileInfo } from "../../../../hooks/use-file-info";
 import { useFfmpeg } from "../../../../hooks/use-ffmpeg";
 import { saveFile } from "../../../../utils/files";
+import { LoadingBar } from "../../../loading-bar/loading-bar";
 
 interface FileInfoModalProps {
   closeModal: () => void;
@@ -41,7 +42,7 @@ export const FileInfoModalContainer: React.FC<FileInfoModalProps> = ({
   return (
     <>
       {loading ? (
-        JSON.stringify(progress)
+        <LoadingBar loading progress={progress} />
       ) : (
         <FileSelector onSelect={(f) => setFile(f[0])} />
       )}
