@@ -1,6 +1,6 @@
 .card {
   .title {
-    @apply text-on-background pb-2 pl-2;
+    @apply pb-2 pl-2 text-on-background;
   }
 
   .body {
@@ -11,7 +11,7 @@
     }
 
     &.inactive {
-      @apply grid grid-flow-col auto-cols-max scroll-px-4 snap-x overflow-x-auto snap-mandatory px-4;
+      @apply grid snap-x snap-mandatory scroll-px-4 auto-cols-max grid-flow-col overflow-x-auto px-4;
     }
   }
 }

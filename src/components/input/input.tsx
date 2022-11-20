@@ -39,7 +39,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <label
           htmlFor={id}
           className={classNames(
-            "flex flex-col gap-1 text-md mb-0 text-on-surface",
+            "mb-0 flex flex-col gap-1 text-md text-on-surface",
             {
               "text-disabled": props.disabled
             },
@@ -50,7 +50,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </label>
         <div
           className={classNames(
-            "flex items-center overflow-hidden bg-background text-on-background focus-within:outline-none rounded-md border px-3 py-[10px] text-sm shadow-xs focus-within:ring-4",
+            "shadow-xs flex items-center overflow-hidden rounded-md border bg-background px-3 py-[10px] text-sm text-on-background focus-within:outline-none focus-within:ring-4",
             {
               "border-outline caret-primary focus-within:border-primary focus-within:ring-on-primary":
                 !hasError,
@@ -62,7 +62,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         >
           {leftIcon && (
             <div
-              className={classNames("w-4 mr-3 order-2", {
+              className={classNames("order-2 mr-3 w-4", {
                 "order-1": !leftReverse,
                 "ordr-2": leftReverse
               })}
@@ -81,7 +81,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </span>
           )}
           <input
-            className="flex grow border-none outline-none bg-transparent p-0 order-3"
+            className="order-3 flex grow border-none bg-transparent p-0 outline-none"
             ref={ref}
             id={id}
             {...props}
@@ -98,7 +98,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
           {rightIcon && (
             <div
-              className={classNames("w-4 ml-3", {
+              className={classNames("ml-3 w-4", {
                 "order-5": !rightReverse,
                 "order-4": rightReverse
               })}

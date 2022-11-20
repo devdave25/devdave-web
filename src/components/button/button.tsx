@@ -28,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={classNames(
-        "flex rounded py-1 px-2 overflow-y-auto justify-center items-center hover:opacity-80 active:opacity-80",
+        "flex items-center justify-center overflow-y-auto rounded py-1 px-2 hover:opacity-80 active:opacity-80",
         outline
           ? {
               ["border-2 border-outline"]: outline,

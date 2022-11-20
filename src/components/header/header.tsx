@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
   return (
     <div className="flex flex-row p-4">
       <h4
-        className="flex text-primary text-5xl cursor-pointer hover:opacity-80"
+        className="text-5xl flex cursor-pointer text-primary hover:opacity-80"
         onClick={() => toggleTheme()}
       >
         DevDave

@@ -10,11 +10,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div
-      className={classNames("flex flex-row select-none bg-background", {
-        dark: theme === "dark",
+      className={classNames("flex select-none flex-row bg-background", {
+        dark: theme === "dark"
       })}
     >
-      <main className="flex-grow h-screen overflow-auto">{children}</main>
+      <main className="h-screen flex-grow overflow-auto">{children}</main>
     </div>
   );
 };

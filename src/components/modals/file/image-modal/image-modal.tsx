@@ -14,12 +14,12 @@ export const ImageModal: React.FC<ImageModalProps> = ({ closeModal }) => {
 };
 
 export const ImageModalContainer: React.FC<ImageModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <>
       <div className="h-64">Body</div>
-      <div className="flex justify-end mt-3">
+      <div className="mt-3 flex justify-end">
         <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </>

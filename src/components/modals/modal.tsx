@@ -74,7 +74,7 @@ export const Modal: React.FC<ModalProps> = ({
   return ReactDOM.createPortal(
     <div
       className={classNames(
-        "flex align-middle justify-center items-center overflow-hidden fixed top-0 left-0 right-0 bottom-0",
+        "fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center overflow-hidden align-middle",
         {
           static: hideBackground
         }
@@ -82,15 +82,15 @@ export const Modal: React.FC<ModalProps> = ({
       onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
     >
       {!hideBackground && (
-        <div className="backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0" />
+        <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur-sm" />
       )}
       <div
         className={classNames(
-          "flex flex-col bg-background text-on-background min-w-[480px] max-w-screen max-h-screen py-4 px-6 z-50 overflow-auto",
+          "max-w-screen z-50 flex max-h-screen min-w-[480px] flex-col overflow-auto bg-background py-4 px-6 text-on-background",
           { dark: theme === "dark" },
           {
-            "w-screen h-screen": forceFullscreen || fullscreen,
-            "border-2 border-outline rounded": !forceFullscreen && !fullscreen
+            "h-screen w-screen": forceFullscreen || fullscreen,
+            "rounded border-2 border-outline": !forceFullscreen && !fullscreen
           },
           className
         )}
@@ -100,7 +100,7 @@ export const Modal: React.FC<ModalProps> = ({
           <div className="pb-2">
             <div className="flex flex-row items-center">
               <div className="flex-grow">{title && <h4>{title}</h4>}</div>
-              <div className="flex flex-row gap-1 items-center">
+              <div className="flex flex-row items-center gap-1">
                 {allowFullscreen && (
                   <ExpandIcon
                     className={classNames("h-[19px] w-[19px]", iconClassName)}
@@ -111,7 +111,7 @@ export const Modal: React.FC<ModalProps> = ({
                 {hasCloseIcon && (
                   <XMarkIcon
                     className={classNames(
-                      "cursor-pointer h-[22px] w-[22px] hover:opacity-80",
+                      "h-[22px] w-[22px] cursor-pointer hover:opacity-80",
                       iconClassName
                     )}
                     onClick={onDismiss}
@@ -119,7 +119,7 @@ export const Modal: React.FC<ModalProps> = ({
                 )}
               </div>
             </div>
-            {title && <div className="border-b-2 border-outline rounded" />}
+            {title && <div className="rounded border-b-2 border-outline" />}
           </div>
         )}
 

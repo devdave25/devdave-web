@@ -10,7 +10,7 @@ interface ModalContextInterface {
 export const ModalContext = React.createContext<ModalContextInterface>({
   modals: [],
   openModal: () => null,
-  closeModal: () => null,
+  closeModal: () => null
 });
 
 interface ModalProviderProps {
@@ -24,7 +24,7 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   const updateState = (type: ModalType, modal?: React.ReactNode) => {
     setModals((m) => ({
       ...m,
-      [type.toString()]: modal,
+      [type.toString()]: modal
     }));
   };
 
@@ -41,7 +41,7 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
       value={{
         modals: Object.values(modals),
         openModal,
-        closeModal,
+        closeModal
       }}
     >
       {children}

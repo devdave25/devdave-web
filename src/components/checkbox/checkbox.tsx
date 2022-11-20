@@ -19,7 +19,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <div
         className={classNames(
-          "m-0 flex flex-row gap-2 text-md items-center text-on-surface",
+          "m-0 flex flex-row items-center gap-2 text-md text-on-surface",
           {
             "text-error": hasError,
             "text-disabled": disabled

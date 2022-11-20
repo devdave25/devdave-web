@@ -6,7 +6,7 @@ interface PdfCombinerModalProps {
   closeModal: () => void;
 }
 export const PdfCombinerModal: React.FC<PdfCombinerModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <Modal onDismiss={closeModal} hasCloseIcon>
@@ -16,12 +16,12 @@ export const PdfCombinerModal: React.FC<PdfCombinerModalProps> = ({
 };
 
 export const PdfCombinerModalContainer: React.FC<PdfCombinerModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <>
       <div className="h-64">Body</div>
-      <div className="flex justify-end mt-3">
+      <div className="mt-3 flex justify-end">
         <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </>

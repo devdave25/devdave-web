@@ -10,7 +10,7 @@ interface ThemeContextInterface {
 export const ThemeContext = React.createContext<ThemeContextInterface>({
   theme: "",
   setTheme: () => null,
-  toggleTheme: () => null,
+  toggleTheme: () => null
 });
 
 interface ThemeProviderProps {
@@ -32,7 +32,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       value={{
         theme,
         setTheme,
-        toggleTheme,
+        toggleTheme
       }}
     >
       {children}

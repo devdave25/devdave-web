@@ -6,7 +6,7 @@ interface ColourWheelModalProps {
   closeModal: () => void;
 }
 export const ColourWheelModal: React.FC<ColourWheelModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <Modal onDismiss={closeModal} hasCloseIcon>
@@ -16,12 +16,12 @@ export const ColourWheelModal: React.FC<ColourWheelModalProps> = ({
 };
 
 export const ColourWheelModalContainer: React.FC<ColourWheelModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <>
       <div className="h-64">Body</div>
-      <div className="flex justify-end mt-3">
+      <div className="mt-3 flex justify-end">
         <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </>

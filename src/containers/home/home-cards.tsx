@@ -25,51 +25,53 @@ import { ModalType } from "../../interfaces/modal-type";
 
 import styles from "./home-cards.module.scss";
 
-const GroupPills: React.FC<{ value?: string; onChange: (v: string) => void }> =
-  ({ value, onChange }) => {
-    const onSelect = (newValue: string) => {
-      if (value === newValue) {
-        onChange("");
-      } else {
-        onChange(newValue);
-      }
-    };
-
-    return (
-      <div className="flex flex-row gap-x-4 pb-2 scroll-pl-4 px-4 snap-x overflow-x-auto">
-        <Pill
-          text="String"
-          selected={value === "string"}
-          onClick={() => onSelect("string")}
-        />
-        <Pill
-          text="Date"
-          selected={value === "date"}
-          onClick={() => onSelect("date")}
-        />
-        <Pill
-          text="JSON"
-          selected={value === "json"}
-          onClick={() => onSelect("json")}
-        />
-        <Pill
-          text="XML"
-          selected={value === "xml"}
-          onClick={() => onSelect("xml")}
-        />
-        <Pill
-          text="Colour"
-          selected={value === "colour"}
-          onClick={() => onSelect("colour")}
-        />
-        <Pill
-          text="File"
-          selected={value === "file"}
-          onClick={() => onSelect("file")}
-        />
-      </div>
-    );
+const GroupPills: React.FC<{
+  value?: string;
+  onChange: (v: string) => void;
+}> = ({ value, onChange }) => {
+  const onSelect = (newValue: string) => {
+    if (value === newValue) {
+      onChange("");
+    } else {
+      onChange(newValue);
+    }
   };
+
+  return (
+    <div className="flex snap-x scroll-pl-4 flex-row gap-x-4 overflow-x-auto px-4 pb-2">
+      <Pill
+        text="String"
+        selected={value === "string"}
+        onClick={() => onSelect("string")}
+      />
+      <Pill
+        text="Date"
+        selected={value === "date"}
+        onClick={() => onSelect("date")}
+      />
+      <Pill
+        text="JSON"
+        selected={value === "json"}
+        onClick={() => onSelect("json")}
+      />
+      <Pill
+        text="XML"
+        selected={value === "xml"}
+        onClick={() => onSelect("xml")}
+      />
+      <Pill
+        text="Colour"
+        selected={value === "colour"}
+        onClick={() => onSelect("colour")}
+      />
+      <Pill
+        text="File"
+        selected={value === "file"}
+        onClick={() => onSelect("file")}
+      />
+    </div>
+  );
+};
 
 const StringCards: React.FC<{ active?: boolean }> = ({ active }) => {
   const { openModal, closeModal } = useModal();
@@ -80,7 +82,7 @@ const StringCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card
@@ -135,7 +137,7 @@ const DateCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card
@@ -194,7 +196,7 @@ const JsonCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card
@@ -239,7 +241,7 @@ const XmlCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card
@@ -284,7 +286,7 @@ const ColourCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card
@@ -343,7 +345,7 @@ const FileCards: React.FC<{ active?: boolean }> = ({ active }) => {
       <div
         className={classNames(styles.body, {
           [styles.inactive]: !active,
-          [styles.active]: active,
+          [styles.active]: active
         })}
       >
         <Card

@@ -43,7 +43,7 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
   });
 
   const renderUuid = (index: number, uuid: string) => (
-    <div key={index} className="flex gap-2 items-center">
+    <div key={index} className="flex items-center gap-2">
       <p>{uuid}</p>
       <div className="flex flex-grow justify-end">
         <CopyIcon value={uuid} />
@@ -61,7 +61,7 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
     <div className="flex flex-col justify-between">
       {renderUuids(uuids)}
 
-      <div className="flex justify-end mt-3 gap-3">
+      <div className="mt-3 flex justify-end gap-3">
         <Button primary onClick={generateUuids} text={"Reload"} />
         <Button outline onClick={closeModal} text={"Cancel"} />
       </div>

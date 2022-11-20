@@ -37,7 +37,7 @@ export default {
               {...args}
               onDismiss={() => closeModal(ModalType.EncodeDecode)}
             >
-              <div className="flex flex-grow bg-surface-variant items-center justify-center">
+              <div className="flex flex-grow items-center justify-center bg-surface-variant">
                 <div>Content</div>
               </div>
             </Modal>

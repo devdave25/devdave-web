@@ -4,7 +4,7 @@ import { UnknownObject } from "../interfaces/types";
 
 /* Initialize analytics */
 const analytics = Analytics({
-  plugins: [],
+  plugins: []
 });
 
 interface AnalyticsContextInterface {
@@ -14,7 +14,7 @@ interface AnalyticsContextInterface {
 
 export const AnalyticsContext = React.createContext<AnalyticsContextInterface>({
   trackPage: () => null,
-  trackEvent: () => null,
+  trackEvent: () => null
 });
 
 interface AnalyticsProviderProps {
@@ -22,15 +22,15 @@ interface AnalyticsProviderProps {
 }
 
 export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({
-  children,
+  children
 }) => {
   const trackPage = () => {
     analytics.page(
       {},
       {
         plugins: {
-          all: true,
-        },
+          all: true
+        }
       }
     );
   };
@@ -38,8 +38,8 @@ export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({
   const trackEvent = (eventName: string, data?: UnknownObject | undefined) => {
     analytics.track(eventName, data, {
       plugins: {
-        all: true,
-      },
+        all: true
+      }
     });
   };
 

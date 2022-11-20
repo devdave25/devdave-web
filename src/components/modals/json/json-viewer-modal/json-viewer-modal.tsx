@@ -34,7 +34,7 @@ export const JsonViewerModalContainer: React.FC<JsonViewerModalProps> = ({
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
       />
-      <div className="flex justify-end mt-3">
+      <div className="mt-3 flex justify-end">
         <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </>

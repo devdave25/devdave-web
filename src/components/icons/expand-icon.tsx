@@ -31,7 +31,7 @@ export const ExpandIcon: React.FC<ExpandIconProps> = ({
   return (
     <ArrowsPointingOutIcon
       className={classNames(
-        "cursor-pointer h-[22px] w-[22px] hover:opacity-80",
+        "h-[22px] w-[22px] cursor-pointer hover:opacity-80",
         className
       )}
       onClick={() => setIsExpanded(true)}

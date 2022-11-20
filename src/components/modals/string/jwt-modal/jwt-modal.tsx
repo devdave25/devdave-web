@@ -59,7 +59,7 @@ export const JwtModalContainer: React.FC = () => {
   return (
     <>
       {error && <div className="text-error">{error}</div>}
-      <div className="flex flex-row gap-4 grow">
+      <div className="flex grow flex-row gap-4">
         <div className="flex grow">
           <TextArea
             title="Token"

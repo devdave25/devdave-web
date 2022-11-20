@@ -25,7 +25,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         </div>
         <textarea
           className={classNames(
-            "w-full bg-background text-on-background focus:outline-none rounded-md border px-3 py-[10px] text-sm shadow-xs focus:ring-4",
+            "shadow-xs w-full rounded-md border bg-background px-3 py-[10px] text-sm text-on-background focus:outline-none focus:ring-4",
             {
               "border-outline caret-primary focus:border-primary focus:ring-on-primary":
                 !hasError,

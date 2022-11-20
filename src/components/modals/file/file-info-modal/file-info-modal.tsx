@@ -46,7 +46,7 @@ export const FileInfoModalContainer: React.FC<FileInfoModalProps> = ({
       ) : (
         <FileSelector onSelect={(f) => setFile(f[0])} />
       )}
-      <div className="flex justify-end mt-3 gap-2">
+      <div className="mt-3 flex justify-end gap-2">
         <Button primary text="Process" onClick={() => doTranscode()} />
         <Button outline text="Cancel" onClick={closeModal} className="mr-3" />
       </div>

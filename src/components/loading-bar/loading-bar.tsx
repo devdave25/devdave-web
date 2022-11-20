@@ -23,7 +23,7 @@ export const LoadingBar: React.FC<LoadingBarProps> = ({
   return (
     <div
       className={classNames(
-        "w-full rounded-full h-2 bg-tertiary",
+        "h-2 w-full rounded-full bg-tertiary",
         backgroundClassName
       )}
     >

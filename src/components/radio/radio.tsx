@@ -20,7 +20,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       <label
         htmlFor={id}
         className={classNames(
-          "m-0 flex flex-row gap-2 items-center text-md text-on-surface",
+          "m-0 flex flex-row items-center gap-2 text-md text-on-surface",
           {
             "text-error": hasError,
             "text-disabled": disabled
@@ -30,7 +30,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       >
         <input
           type="radio"
-          className={classNames("accent-primary h-4 w-4", {
+          className={classNames("h-4 w-4 accent-primary", {
             "bg-disable": disabled
           })}
           ref={ref}

@@ -6,7 +6,7 @@ interface FileSelectorProps {
 }
 export const FileSelector: React.FC<FileSelectorProps> = ({
   multiple,
-  onSelect,
+  onSelect
 }) => {
   const [files, setFiles] = React.useState<FileList | undefined>();
 

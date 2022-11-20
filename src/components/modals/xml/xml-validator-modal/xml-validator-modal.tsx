@@ -6,7 +6,7 @@ interface XmlValidatorModalProps {
   closeModal: () => void;
 }
 export const XmlValidatorModal: React.FC<XmlValidatorModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <Modal onDismiss={closeModal} title="XML Validator" hasCloseIcon>
@@ -16,12 +16,12 @@ export const XmlValidatorModal: React.FC<XmlValidatorModalProps> = ({
 };
 
 export const XmlValidatorModalContainer: React.FC<XmlValidatorModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <>
       <div className="h-64">Body</div>
-      <div className="flex justify-end mt-3">
+      <div className="mt-3 flex justify-end">
         <Button outline onClick={closeModal} className="mr-3" text={"Cancel"} />
       </div>
     </>
