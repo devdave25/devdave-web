@@ -1,17 +1,21 @@
 import classNames from "classnames";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../../context/theme";
+import { ExpandIcon } from "../icons/expand-icon";
 
 export interface ModalProps {
   onDismiss: () => void;
   title?: string;
   hideBackground?: boolean;
   className?: string;
+  iconClassName?: string;
   hasCloseIcon?: boolean;
-  closeIconClassName?: string;
   disableBackgroundDismiss?: boolean;
+  allowFullscreen?: boolean;
+  defaultFullscreen?: boolean;
+  forceFullscreen?: boolean;
   children: React.ReactElement;
 }
 export const Modal: React.FC<ModalProps> = ({
@@ -19,12 +23,19 @@ export const Modal: React.FC<ModalProps> = ({
   hideBackground,
   title,
   className,
+  iconClassName,
   hasCloseIcon,
-  closeIconClassName,
   disableBackgroundDismiss,
-  children,
+  allowFullscreen,
+  defaultFullscreen,
+  forceFullscreen,
+  children
 }) => {
   const { theme } = useTheme();
+  const [fullscreen, setFullscreen] = React.useState(
+    (allowFullscreen && defaultFullscreen) || false
+  );
+  const hasHeader = title || allowFullscreen || hasCloseIcon;
   const portalElement = document.querySelector("#portal");
   const el = document.createElement("div");
 
@@ -65,7 +76,7 @@ export const Modal: React.FC<ModalProps> = ({
       className={classNames(
         "flex align-middle justify-center items-center overflow-hidden fixed top-0 left-0 right-0 bottom-0",
         {
-          static: hideBackground,
+          static: hideBackground
         }
       )}
       onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
@@ -75,29 +86,44 @@ export const Modal: React.FC<ModalProps> = ({
       )}
       <div
         className={classNames(
-          "bg-background text-on-background w-100 min-w-[480px] max-w-screen max-h-screen px-6 pb-4 border-2 border-outline rounded z-50 overflow-auto",
+          "flex flex-col bg-background text-on-background min-w-[480px] max-w-screen max-h-screen py-4 px-6 z-50 overflow-auto",
           { dark: theme === "dark" },
+          {
+            "w-screen h-screen": forceFullscreen || fullscreen,
+            "border-2 border-outline rounded": !forceFullscreen && !fullscreen
+          },
           className
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="pt-4 pb-2">
-          <div className="flex flex-row items-center">
-            <div className="flex-grow">{title && <h4>{title}</h4>}</div>
-            {hasCloseIcon && (
-              <XMarkIcon
-                className={classNames(
-                  "cursor-pointer h-[22px] w-[22px] hover:opacity-80",
-                  closeIconClassName
+        {hasHeader && (
+          <div className="pb-2">
+            <div className="flex flex-row items-center">
+              <div className="flex-grow">{title && <h4>{title}</h4>}</div>
+              <div className="flex flex-row gap-1 items-center">
+                {allowFullscreen && (
+                  <ExpandIcon
+                    className={classNames("h-[19px] w-[19px]", iconClassName)}
+                    initialValue={fullscreen}
+                    onChange={(expanded) => setFullscreen(expanded)}
+                  />
                 )}
-                onClick={onDismiss}
-              />
-            )}
+                {hasCloseIcon && (
+                  <XMarkIcon
+                    className={classNames(
+                      "cursor-pointer h-[22px] w-[22px] hover:opacity-80",
+                      iconClassName
+                    )}
+                    onClick={onDismiss}
+                  />
+                )}
+              </div>
+            </div>
+            {title && <div className="border-b-2 border-outline rounded" />}
           </div>
-          {title && <div className="border-b-2 border-outline rounded" />}
-        </div>
+        )}
 
-        {children}
+        <div className="flex flex-grow">{children}</div>
       </div>
     </div>,
     el

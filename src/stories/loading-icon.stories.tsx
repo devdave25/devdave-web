@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryObj, Meta } from "@storybook/react";
 
-import { LoadingIcon } from "../components/loading-icon/loading-icon";
+import { LoadingIcon } from "../components/icons/loading-icon";
 
 export default {
   title: "Components/LoadingIcon",

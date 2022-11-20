@@ -3,7 +3,7 @@ import { StoryObj, Meta } from "@storybook/react";
 
 import { Input } from "../components/input/input";
 import { CheckIcon } from "@heroicons/react/24/solid";
-import { LoadingIcon } from "../components/loading-icon/loading-icon";
+import { LoadingIcon } from "../components/icons/loading-icon";
 
 export default {
   title: "Components/Input",

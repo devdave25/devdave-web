@@ -7,17 +7,22 @@ interface JsonViewerModalProps {
   closeModal: () => void;
 }
 export const JsonViewerModal: React.FC<JsonViewerModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
-    <Modal onDismiss={closeModal} hasCloseIcon>
+    <Modal
+      onDismiss={closeModal}
+      hasCloseIcon
+      allowFullscreen
+      defaultFullscreen
+    >
       <JsonViewerModalContainer closeModal={closeModal} />
     </Modal>
   );
 };
 
 export const JsonViewerModalContainer: React.FC<JsonViewerModalProps> = ({
-  closeModal,
+  closeModal
 }) => {
   return (
     <>
