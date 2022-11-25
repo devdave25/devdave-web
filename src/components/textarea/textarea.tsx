@@ -21,7 +21,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       <div className={classNames("flex flex-col gap-1", className)}>
         <div className="flex">
           {props.title && <label htmlFor={id}>{props.title}</label>}
-          <div className="flex flex-grow justify-end gap-1">{iconActions}</div>
+          <div className="flex grow justify-end gap-1">{iconActions}</div>
         </div>
         <textarea
           className={classNames(

@@ -45,7 +45,7 @@ export const UuidModalContainer: React.FC<UuidModalProps> = ({
   const renderUuid = (index: number, uuid: string) => (
     <div key={index} className="flex items-center gap-2">
       <p>{uuid}</p>
-      <div className="flex flex-grow justify-end">
+      <div className="flex grow justify-end">
         <CopyIcon value={uuid} />
       </div>
     </div>

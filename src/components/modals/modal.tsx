@@ -99,7 +99,7 @@ export const Modal: React.FC<ModalProps> = ({
         {hasHeader && (
           <div className="pb-2">
             <div className="flex flex-row items-center">
-              <div className="flex-grow">{title && <h4>{title}</h4>}</div>
+              <div className="grow">{title && <h4>{title}</h4>}</div>
               <div className="flex flex-row items-center gap-1">
                 {allowFullscreen && (
                   <ExpandIcon
@@ -123,7 +123,7 @@ export const Modal: React.FC<ModalProps> = ({
           </div>
         )}
 
-        <div className="flex flex-grow">{children}</div>
+        <div className="flex grow flex-col">{children}</div>
       </div>
     </div>,
     el

@@ -38,7 +38,7 @@ export const EncodeDecodeModalContainer: React.FC = () => {
   }, [decodeMode, text]);
 
   return (
-    <div className="flex flex-grow flex-col gap-2">
+    <div className="flex grow flex-col gap-2">
       <>
         <Toggle
           leftText="Encode"

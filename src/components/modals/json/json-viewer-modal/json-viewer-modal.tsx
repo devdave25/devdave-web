@@ -27,11 +27,12 @@ export const JsonViewerModalContainer: React.FC<JsonViewerModalProps> = ({
   return (
     <>
       <AceEditor
+        name="json_viewer"
         mode="json"
         theme="github"
-        className="h-64"
+        className="flex grow"
+        style={{ width: "auto" }}
         onChange={(e: any) => console.log(e)}
-        name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
       />
       <div className="mt-3 flex justify-end">

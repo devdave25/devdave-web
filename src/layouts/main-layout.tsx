@@ -14,7 +14,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         dark: theme === "dark"
       })}
     >
-      <main className="h-screen flex-grow overflow-auto">{children}</main>
+      <main className="h-screen grow overflow-auto">{children}</main>
     </div>
   );
 };
