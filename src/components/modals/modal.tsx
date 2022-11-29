@@ -16,6 +16,7 @@ export interface ModalProps {
   allowFullscreen?: boolean;
   defaultFullscreen?: boolean;
   forceFullscreen?: boolean;
+  custom?: boolean;
   children: React.ReactElement;
 }
 export const Modal: React.FC<ModalProps> = ({
@@ -29,6 +30,7 @@ export const Modal: React.FC<ModalProps> = ({
   allowFullscreen,
   defaultFullscreen,
   forceFullscreen,
+  custom,
   children
 }) => {
   const { theme } = useTheme();
@@ -69,6 +71,35 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!el) {
     return null;
+  }
+
+  if (custom) {
+    return ReactDOM.createPortal(
+      <div
+        className={classNames(
+          "fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center overflow-hidden align-middle",
+          {
+            static: hideBackground
+          }
+        )}
+        onClick={() => !disableBackgroundDismiss && onDismiss && onDismiss()}
+      >
+        {!hideBackground && (
+          <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur-sm" />
+        )}
+        <div
+          className={classNames(
+            "max-w-screen z-50 flex max-h-screen min-w-[480px] flex-col overflow-auto bg-background text-on-background",
+            { dark: theme === "dark" },
+            className
+          )}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+        </div>
+      </div>,
+      el
+    );
   }
 
   return ReactDOM.createPortal(

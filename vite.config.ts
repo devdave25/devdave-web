@@ -13,6 +13,16 @@ const wasmFile = normalizePath(
   )
 );
 
+const pdfFile = normalizePath(
+  resolve(
+    __dirname,
+    "node_modules",
+    "pdfjs-dist",
+    "build",
+    "pdf.worker.min.js"
+  )
+);
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -26,6 +36,10 @@ export default defineConfig({
           src: wasmFile,
           dest: "wasm-files",
         },
+        {
+          src: pdfFile,
+          dest: "."
+        }
       ],
     }),
     {

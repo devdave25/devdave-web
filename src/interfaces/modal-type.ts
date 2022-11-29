@@ -16,5 +16,6 @@ export enum ModalType {
   Image,
   Video,
   PdfViewer,
+  PdfPreview,
   PdfCombiner,
 }

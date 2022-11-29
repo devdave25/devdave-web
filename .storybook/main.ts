@@ -32,5 +32,5 @@ module.exports = {
   core: {},
   features: {
     storyStoreV7: true,
-  },
+  }
 };
