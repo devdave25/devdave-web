@@ -1,7 +1,7 @@
 import React from "react";
 import { pdfjs, Document, Page } from "react-pdf";
-import { useKeyPress } from "../../../../hooks/use-key-press";
 import { PageIndicator } from "../../../page-indicator/page-indicator";
+import { StaticHide } from "../../../static-hide/static-hide";
 import { Modal } from "../../modal";
 
 pdfjs.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
@@ -88,13 +88,15 @@ export const PdfViewerContainer: React.FC<{
           <Page pageNumber={page} />
         </div>
         <div className="absolute left-1/2 bottom-4 -translate-x-1/2 transform rounded-lg">
-          <PageIndicator
-            initial={initial}
-            total={totalPages}
-            onChange={(p) => setPage(p)}
-            disabled={onlyPage}
-            className="rounded-lg"
-          />
+          <StaticHide>
+            <PageIndicator
+              initial={initial}
+              total={totalPages}
+              onChange={(p) => setPage(p)}
+              disabled={onlyPage}
+              className="rounded-lg"
+            />
+          </StaticHide>
         </div>
       </Document>
     </div>

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "../../context/theme";
 import { ExpandIcon } from "../icons/expand-icon";
+import { motion } from "framer-motion";
 
 export interface ModalProps {
   onDismiss: () => void;
@@ -102,6 +103,16 @@ export const Modal: React.FC<ModalProps> = ({
     );
   }
 
+  const modal = {
+    hidden: {
+      opacity: 0
+    },
+    show: {
+      opacity: 1,
+      transition: { duration: 0.2 }
+    }
+  };
+
   return ReactDOM.createPortal(
     <div
       className={classNames(
@@ -115,7 +126,10 @@ export const Modal: React.FC<ModalProps> = ({
       {!hideBackground && (
         <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur-sm" />
       )}
-      <div
+      <motion.div
+        variants={modal}
+        initial="hidden"
+        animate="show"
         className={classNames(
           "max-w-screen z-50 flex max-h-screen min-w-[480px] flex-col overflow-auto bg-background py-4 px-6 text-on-background",
           { dark: theme === "dark" },
@@ -155,7 +169,7 @@ export const Modal: React.FC<ModalProps> = ({
         )}
 
         <div className="flex grow flex-col">{children}</div>
-      </div>
+      </motion.div>
     </div>,
     el
   );

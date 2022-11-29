@@ -21,6 +21,7 @@
     "buffer": "^6.0.3",
     "classnames": "^2.3.1",
     "file-saver": "^2.0.5",
+    "framer-motion": "^7.6.15",
     "luxon": "^3.1.0",
     "mediainfo.js": "^0.1.8",
     "pdf-lib": "^1.17.1",
