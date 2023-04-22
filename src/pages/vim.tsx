@@ -7,8 +7,12 @@ import Link from "next/link";
 
 const gitPaths = ["INSTALL.md", "PLUGINS.md", ".vimrc", ".config/nvim/init.vim", ".vim/ftplugin/cpp.vim"];
 
-export default function Vim({ files }) {
-    const paths = Object.keys(files);
+interface Files {
+    [key: string]: string;
+}
+
+export default function Vim(props: { files: Files }) {
+    const paths = Object.keys(props.files);
     const [path, setPath] = React.useState(paths[0]);
 
     const fileNav = <div className="flex flex-row gap-2 p-3">
@@ -28,7 +32,7 @@ export default function Vim({ files }) {
                     <Link href={"/"}><HomeIcon className="w-5 cursor-pointer" /></Link>
                     {fileNav}
                 </div>
-                <FilePreview path={path} content={files[path]} />
+                <FilePreview path={path} content={props.files[path]} />
             </div>
         </>
     );
