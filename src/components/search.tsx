@@ -13,7 +13,7 @@ interface SearchProps {
   inputClassName?: string;
   autoFocus?: boolean;
   onChange?: (value: string) => void;
-  onSubmit?: (value: string) => void;
+  onSubmit?: (value: string, ctrl?: boolean) => void;
   onAddLink?: (value: string) => void;
 }
 
@@ -50,7 +50,7 @@ export const Search: React.FC<SearchProps> = ({
       )}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
-          onSubmit?.(value);
+          onSubmit?.(value, e.ctrlKey);
         }
       }}
     >

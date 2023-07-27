@@ -43,16 +43,19 @@ export default function Home() {
     setLocalLinks(localLinks.filter((link) => link !== url));
   };
 
-  const submit = (value: string) => {
+  const submit = (value: string, ctrl?: boolean) => {
     if (!value.length) {
       return;
     }
-    if (filteredLinks.length === 1) {
-      window.open(filteredLinks[0].url, "_blank");
-      return;
-    }
 
-    window.open(`https://www.google.com/search?q=${value}`, "_blank");
+    if (filteredLinks.length === 1) {
+      window.open(filteredLinks[0].url, ctrl ? "_blank" : "_self");
+    } else {
+      window.open(
+        `https://www.google.com/search?q=${value}`,
+        ctrl ? "_blank" : "_self"
+      );
+    }
   };
 
   return (
