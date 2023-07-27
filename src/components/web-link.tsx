@@ -29,7 +29,7 @@ export const WebLink: React.FC<{
             onRemoveLink?.(url);
           }}
         >
-          <TrashIcon className="h-4 w-4 group-hover/btn:text-gray-400" />
+          <TrashIcon className="h-4 w-4 group-hover/btn:opacity-50" />
         </button>
       )}
       <Image

@@ -71,6 +71,7 @@ export const Search: React.FC<SearchProps> = ({
         <ArrowRightCircleIcon
           className={classNames("h-5 w-5", {
             "cursor-pointer": value.length,
+            "opacity-20": !value.length,
           })}
           onClick={() => onSubmit?.(value)}
         />
