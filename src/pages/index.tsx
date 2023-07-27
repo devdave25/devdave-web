@@ -63,7 +63,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-w-screen flex max-h-screen min-h-screen flex-row divide-x-2 overflow-hidden bg-surface text-white">
+      <div className="min-w-screen flex max-h-screen min-h-screen flex-row overflow-hidden bg-surface text-white">
         <div className="block w-full overflow-y-auto overflow-x-hidden">
           <div className="flex h-full flex-col">
             <div className="w-100 m-10 flex flex-row">
@@ -94,9 +94,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hidden w-full overflow-y-auto overflow-x-hidden xs:block">
-          <div className="flex h-full flex-col">
-            <Cheatsheet />
-          </div>
+          <Cheatsheet />
         </div>
       </div>
     </>
