@@ -1,43 +1,72 @@
 import React from "react";
 import classNames from "classnames";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Project {
-    link: string;
-    name: string;
-    description: string;
-    comingSoon?: boolean;
+  link: string;
+  name: string;
+  description: string;
+  image?: string;
+  className?: string;
 }
 
-const Project: React.FC<Project> = ({ link, name, description, comingSoon }) => {
-    return <Link className="flex rounded flex-col bg-zinc-700 p-2 h-52 from-zinc-600 to-40% hover:drop-shadow-xl cursor-pointer to-transparent hover:bg-gradient-to-t" href={!comingSoon ? link : ""} target="_blank">
-        <div className="flex w-full h-full border items-center justify-center">
-            <span>IMAGE</span>
-        </div>
-        <div className="flex flex-col">
-            <span>{!comingSoon ? name : "Coming soon"}</span>
-            <span>{!comingSoon ? description : "New project coming soon."}</span>
-        </div>
+const Project: React.FC<Project> = ({
+  link,
+  name,
+  description,
+  image,
+  className,
+}) => {
+  return (
+    <Link
+      className={classNames(
+        "group relative flex cursor-pointer flex-col overflow-hidden rounded bg-container",
+        className
+      )}
+      href={link}
+      target="_blank"
+    >
+      <Image
+        width={200}
+        height={200}
+        className="h-full w-full overflow-auto object-cover transition duration-300 group-hover:scale-110"
+        src={image ?? "/empty-project.png"}
+        alt="project image"
+      />
+      <div className="absolute bottom-1 left-1 flex flex-col">
+        <span className="text-sm text-black">{name}</span>
+        <span className="text-xs text-black">{description}</span>
+      </div>
     </Link>
-}
-
+  );
+};
 
 interface ProjectsProps {
-    className?: string;
+  className?: string;
 }
 export const Projects: React.FC<ProjectsProps> = ({ className }) => {
-    return (
-        <div
-            className={classNames(
-                "grid sm:grid-cols-3 md:grid-cols-4 gap-4",
-                className
-            )}
-        >
-            <Project link="https://tools.devdave.co.uk" name="DevTools" description="Collection of useful developer tools." />
-            <Project link="https://poker.devdave.co.uk" name="Poker planning" description="Poker planning system." comingSoon />
-            <Project link="https://prop-map.devdave.co.uk" name="Property Map" description="UK Property map experiment." comingSoon />
-            <Project link="https://flights.devdave.co.uk" name="Flights" description="Sleasy-Jet flight finder" comingSoon />
-            <Project link="https://air.devdave.co.uk" name="Air quality" description="Room condition control panel" comingSoon />
-        </div >
-    );
+  return (
+    <div
+      className={classNames(
+        "flex h-20 min-w-max flex-row gap-4 sm:h-32 lg:h-40",
+        className
+      )}
+    >
+      <Project
+        link="https://tools.devdave.co.uk"
+        name="DevTools"
+        description="Collection of useful developer tools."
+        className="aspect-video"
+      />
+      <Project
+        link="https://fly.devdave.co.uk"
+        image="/fly-image.png"
+        name="Flights"
+        description="Flights finder"
+        className="aspect-video"
+      />
+      {/* <Project link="https://poker.devdave.co.uk" name="Poker planning" description="Poker planning system." /> */}
+    </div>
+  );
 };
