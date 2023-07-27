@@ -26,6 +26,14 @@ export const Search: React.FC<SearchProps> = ({
   onSubmit,
   onAddLink,
 }) => {
+  const inputElement = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (inputElement.current && autoFocus) {
+      inputElement.current.focus();
+    }
+  }, [autoFocus]);
+
   const [value, setValue] = React.useState<string>("");
 
   React.useEffect(() => {
@@ -48,12 +56,13 @@ export const Search: React.FC<SearchProps> = ({
     >
       <MagnifyingGlassIcon className="h-5 w-5" />
       <input
+        ref={inputElement}
         type="text"
-        autoFocus={autoFocus}
         className={classNames(
           "w-full border-none bg-transparent p-0 focus:ring-0",
           inputClassName
         )}
+        autoFocus
         placeholder={placeholder}
         value={value}
         onChange={(e) => setValue(e.target.value)}
