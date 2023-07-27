@@ -50,12 +50,21 @@ export default function Home() {
 
     if (filteredLinks.length === 1) {
       window.open(filteredLinks[0].url, ctrl ? "_blank" : "_self");
-    } else {
+      return;
+    } 
+
+    if (+value > 0 && value.length === 4) {
       window.open(
-        `https://www.google.com/search?q=${value}`,
+        `http://localhost:${value}`,
         ctrl ? "_blank" : "_self"
       );
+      return;
     }
+
+    window.open(
+      `https://www.google.com/search?q=${value}`,
+      ctrl ? "_blank" : "_self"
+    );
   };
 
   return (
