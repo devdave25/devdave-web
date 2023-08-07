@@ -39,7 +39,7 @@ export const WebLink: React.FC<{
         height={20}
         alt={"Icon"}
       />
-      <p>{host?.replace("www.", "")}</p>
+      <p className="text-xs md:text-base">{host?.replace("www.", "")}</p>
     </Link>
   );
 };

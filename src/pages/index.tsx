@@ -51,13 +51,10 @@ export default function Home() {
     if (filteredLinks.length === 1) {
       window.open(filteredLinks[0].url, ctrl ? "_blank" : "_self");
       return;
-    } 
+    }
 
     if (+value > 0 && value.length === 4) {
-      window.open(
-        `http://localhost:${value}`,
-        ctrl ? "_blank" : "_self"
-      );
+      window.open(`http://localhost:${value}`, ctrl ? "_blank" : "_self");
       return;
     }
 
@@ -78,7 +75,7 @@ export default function Home() {
       <div className="min-w-screen flex max-h-screen min-h-screen flex-row overflow-hidden bg-surface text-white">
         <div className="block w-full overflow-y-auto overflow-x-hidden">
           <div className="flex h-full flex-col">
-            <div className="w-100 m-10 flex flex-row">
+            <div className="m-10 flex flex-row px-0 lg:px-16 xl:px-40">
               <Search
                 className="w-full"
                 autoFocus
@@ -105,7 +102,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hidden w-full overflow-y-auto overflow-x-hidden xs:block">
+        <div className="hidden w-full max-w-[500px] overflow-y-auto overflow-x-hidden xs:block">
           <Cheatsheet />
         </div>
       </div>
