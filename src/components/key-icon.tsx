@@ -5,7 +5,11 @@ interface KeyIconProps {
 }
 
 export const KeyIcon: React.FC<KeyIconProps> = ({ text }) => {
-  return <div className="bg-surface rounded-md px-2 py-1 shadow-lg">{text}</div>;
+  return (
+    <div className="min-w-[30px] rounded-md bg-surface px-2 py-1 text-center shadow-lg">
+      {text}
+    </div>
+  );
 };
 
 export const CtrlSpaceKeyIcon: React.FC = () => {
@@ -17,4 +21,3 @@ export const CtrlSpaceKeyIcon: React.FC = () => {
     </div>
   );
 };
-
