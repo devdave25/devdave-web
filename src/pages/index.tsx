@@ -5,12 +5,14 @@ import { Cheatsheet } from "@/containers/cheatsheet";
 import { Projects } from "@/containers/projects";
 import { useLocalStorage } from "@/hooks/local";
 import { isUrl } from "@/utils/url";
+import classNames from "classnames";
 import Head from "next/head";
 import React from "react";
 
 export default function Home() {
   const [localLinks, setLocalLinks] = useLocalStorage<string[]>("links", []);
   const [filter, setFilter] = React.useState<string>("");
+  const [showCheatsheet, setShowCheatsheet] = React.useState<boolean>(false);
 
   const filteredLinks = React.useMemo(
     () =>
@@ -75,7 +77,21 @@ export default function Home() {
       <div className="min-w-screen flex max-h-screen min-h-screen flex-row overflow-hidden bg-surface text-white">
         <div className="block w-full overflow-y-auto overflow-x-hidden">
           <div className="flex h-full flex-col">
-            <div className="m-10 flex flex-row px-0 lg:px-16 xl:px-40">
+            <div
+              className={classNames(
+                "absolute -right-4 top-[80%] z-10 -rotate-90 rounded-t-md px-2 xs:hidden",
+                {
+                  "bg-green-800": showCheatsheet,
+                  "bg-green-900": !showCheatsheet,
+                }
+              )}
+              onClick={() => {
+                setShowCheatsheet(!showCheatsheet);
+              }}
+            >
+              {showCheatsheet ? "close" : "open"}
+            </div>
+            <div className="m-10 flex flex-row px-0 transition-all duration-500 lg:px-16 xl:px-40">
               <Search
                 className="w-full"
                 autoFocus
@@ -102,7 +118,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hidden w-full max-w-[500px] overflow-y-auto overflow-x-hidden xs:block">
+        <div
+          className={classNames(
+            "w-full max-w-[500px] overflow-y-auto overflow-x-hidden bg-surface xs:relative xs:block",
+            {
+              absolute: showCheatsheet,
+              hidden: !showCheatsheet,
+            }
+          )}
+        >
           <Cheatsheet />
         </div>
       </div>
