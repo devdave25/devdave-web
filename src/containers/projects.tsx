@@ -9,6 +9,7 @@ interface Project {
   description: string;
   image?: string;
   className?: string;
+  light?: boolean;
 }
 
 const Project: React.FC<Project> = ({
@@ -17,6 +18,7 @@ const Project: React.FC<Project> = ({
   description,
   image,
   className,
+  light,
 }) => {
   return (
     <Link
@@ -35,8 +37,22 @@ const Project: React.FC<Project> = ({
         alt="project image"
       />
       <div className="absolute bottom-1 left-1 flex flex-col">
-        <span className="text-sm text-black">{name}</span>
-        <span className="text-xs text-black">{description}</span>
+        <span
+          className={classNames("text-sm", {
+            "text-black": !light,
+            "text-white": light,
+          })}
+        >
+          {name}
+        </span>
+        <span
+          className={classNames("text-xs", {
+            "text-black": !light,
+            "text-white": light,
+          })}
+        >
+          {description}
+        </span>
       </div>
     </Link>
   );
@@ -55,9 +71,11 @@ export const Projects: React.FC<ProjectsProps> = ({ className }) => {
     >
       <Project
         link="https://tools.devdave.co.uk"
+        image="/tools-image.png"
         name="DevTools"
-        description="Collection of useful developer tools."
+        description="Collection of useful developer tools"
         className="aspect-video"
+        light
       />
       <Project
         link="https://fly.devdave.co.uk"
