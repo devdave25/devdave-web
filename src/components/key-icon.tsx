@@ -21,3 +21,14 @@ export const CtrlSpaceKeyIcon: React.FC = () => {
     </div>
   );
 };
+
+interface KeyIconGroupProps {
+  text: string;
+  desc: string;
+}
+export const KeyIconGroup: React.FC<KeyIconGroupProps> = ({ text, desc }) => {
+  return <div className="flex flex-row items-center gap-4">
+    <KeyIcon text={text} />
+    <p className="text-xs md:text-sm">{desc}</p>
+  </div>
+}
