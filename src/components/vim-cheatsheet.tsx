@@ -7,7 +7,7 @@ export const VimCheatsheet: React.FC = () => {
   const [tab, setTab] = React.useState(0);
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 overflow-y-auto pb-4">
         <Tab label="General" active={tab === 0} onClick={() => setTab(0)} />
         <Tab label="LSP" active={tab === 1} onClick={() => setTab(1)} />
         <Tab label="Telescope" active={tab === 2} onClick={() => setTab(2)} />

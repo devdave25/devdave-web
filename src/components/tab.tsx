@@ -7,7 +7,7 @@ interface TabProps {
   onClick?: () => void;
 }
 
-export const Tab = React.FC<TabProps> = ({ label, active, onClick }) => {
+export const Tab: React.FC<TabProps> = ({ label, active, onClick }) => {
   return (
     <div className={classNames("cursor-pointer rounded-full px-2", {
       "bg-surface": active,
