@@ -15,7 +15,8 @@ module.exports = {
       colors: {
         'container2': '#303134',
         'container': '#303134',
-        'surface': '#202124'
+        'surface': '#202124',
+        'background': '#171717',
       },
       backgroundImage: {
         'pattern': "url('/pattern.svg')",
