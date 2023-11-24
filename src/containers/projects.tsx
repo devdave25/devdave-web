@@ -65,7 +65,7 @@ export const Projects: React.FC<ProjectsProps> = ({ className }) => {
   return (
     <div
       className={classNames(
-        "flex h-20 min-w-max flex-row gap-4 sm:h-32 lg:h-40",
+        "flex",
         className
       )}
     >
@@ -84,7 +84,7 @@ export const Projects: React.FC<ProjectsProps> = ({ className }) => {
         description="Flights finder"
         className="aspect-video"
       />
-      {/* <Project link="https://poker.devdave.co.uk" name="Poker planning" description="Poker planning system." /> */}
+     {/* <Project link="https://poker.devdave.co.uk" name="Poker planning" description="Poker planning system." /> */}
     </div>
   );
 };

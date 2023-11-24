@@ -17,7 +17,7 @@ export const WebLink: React.FC<{
     <Link
       href={url}
       className={classNames(
-        "group relative flex h-auto w-full cursor-pointer flex-col items-center justify-center gap-2 rounded p-2 hover:bg-container",
+        "group overflow-hidden relative flex h-auto w-full cursor-pointer flex-col items-center justify-center gap-2 rounded p-2 hover:bg-container",
         className
       )}
     >

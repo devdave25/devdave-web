@@ -60,6 +60,11 @@ export default function Home() {
       return;
     }
 
+    if (isUrl(value)) {
+      window.open(value, ctrl ? "_blank" : "_self");
+      return;
+    }
+
     window.open(
       `https://www.google.com/search?q=${value}`,
       ctrl ? "_blank" : "_self"
@@ -91,7 +96,7 @@ export default function Home() {
             >
               {showCheatsheet ? "close" : "open"}
             </div>
-            <div className="m-10 flex flex-row px-0 transition-all duration-500 lg:px-16 xl:px-40">
+            <div className="m-10 flex flex-row px-0 transition-all duration-500 lg:px-16 xl:px-40 2xl:px-[25%]">
               <Search
                 className="w-full"
                 autoFocus
@@ -100,8 +105,8 @@ export default function Home() {
                 onAddLink={addLink}
               />
             </div>
-            <div className="flex w-full flex-grow flex-col justify-between px-4">
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+            <div className="flex w-full flex-grow flex-col justify-between px-4 overflow-scroll">
+              <div className="grid py-2 grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:px-10 2xl:px-20 xl:grid-cols-5 2xl:grid-cols-6">
                 {filteredLinks.map(({ url, favicon, local }, i) => (
                   <WebLink
                     key={i}
@@ -112,9 +117,9 @@ export default function Home() {
                   />
                 ))}
               </div>
-              <div className="max-w-full overflow-y-auto p-4">
-                <Projects />
-              </div>
+            </div>
+            <div className="flex max-w-full p-4 overflow-x-auto flex-shrink-0">
+              <Projects className="flex h-20 sm:h-32 2xl:h-40 flex-row gap-4" />
             </div>
           </div>
         </div>
